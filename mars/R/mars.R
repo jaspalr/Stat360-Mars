@@ -221,6 +221,13 @@ mars.control <- function(Mmax=2,d=3,trace=FALSE) {
 # Methods
 #------------------------------------------------------------------------
 ## Predict mars
+#'Conducts analysis of variance on a mars object
+#'
+#' @param object an mars objects 
+#'
+#' @return A data frame containing the sum of squares, F-value, p-value, etc.
+#' @examples 
+#' mars.anova(mars)
 predict.mars <- function(object,newdata) {
   if(missing(newdata) || is.null(newdata)) {
     B <- as.matrix(object$B)
@@ -281,7 +288,14 @@ decomp <- function(object){
 }
 
 #recall f value is calculated with MSR and MSE
-anova.mars <- function(object) {
+#'Conducts analysis of variance on a mars object
+#'
+#' @param object an mars objects 
+#'
+#' @return A data frame containing the sum of squares, F-value, p-value, etc.
+#' @examples 
+#' mars.anova(mars)
+mars.anova <- function(object) {
   ncoeffs <- object$coefficients
   y <- object$y
   y_hat <- decomp(object)
@@ -313,7 +327,7 @@ anova.mars <- function(object) {
 
 ## Plot mars
 
-anova.plot <- function(object){
+plot.mars <- function(object){
   y <- object$y
   fit <- fitted(object)
   res <- residuals(object)
