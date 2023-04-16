@@ -15,7 +15,7 @@
 #' @return a mars class containing the call, input formula, y values, coefficients,
 #' and data frame containing the split points, and direction for a given coefficient
 #'
-#' @author Jaspal Raman, Ben Shires Nakamura, Jessica Kim
+#' @author Jaspal Raman, Ben Nakmura, Jessica Kim
 #' @references Multivariate Adaptive Regression Splines
 #' @seealso anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
 #' @example mars(y~., data, marscontrol)
@@ -231,22 +231,13 @@ mars.control <- function(Mmax=2,d=3,trace=FALSE) {
 # Methods
 #------------------------------------------------------------------------
 ## Predict mars
-#'Creates a prediction for Y given new data
+#'Conducts analysis of variance on a mars object
 #'
 #' @param object an mars objects
-#' @param newdata additional data with m rows
 #'
-#' @return A vector length m with predicted values
+#' @return A data frame containing the sum of squares, F-value, p-value, etc.
 #' @examples
-#' #facebook data
-#' df3 <- read.delim("./dataset_Facebook.csv",sep=";",header=TRUE)
-#' df3 <- subset(df3, select = c(like, comment, share))
-#' df3 <- head(df3,400)
-#' newdata <- tail(df3,100)
-#' names(newdata) <- names(df3)
-#' object <- mars(like~., df3)
-#' predict.mars(object, newdata)
-
+#' mars.anova(mars)
 predict.mars <- function(object,newdata) {
   if(missing(newdata) || is.null(newdata)) {
     B <- as.matrix(object$B)
@@ -295,14 +286,7 @@ make_B <- function(X, Bfuncs){
 #'
 #' @return A data frame containing the sum of squares, F-value, p-value, etc.
 #' @examples
-#' # concrete strength
-#' df2 <- read.csv("./Concrete_Data.csv",header=TRUE)
-#' names(df2) <- c("Cement","Blast.Furnace.Slag","Fly.Ash","Water",
-#'                 "Superplasticizer","Coarse.Aggregate","Fine.Aggregate.",
-#'                 "Age.(day)", "Concrete.compressive.strength")
-#' df2 <- head(df2,500)
-#' object <- mars(Concrete.compressive.strength~.,df2)
-#' mars.anova(object)
+#' mars.anova(mars)
 anova.mars <- function(object) {
   ncoeffs <- object$coefficients
   y <- object$y
@@ -350,18 +334,7 @@ decomp <- function(object){
 
 
 ## Plot mars
-#'plot various aspects of the mars object
-#'
-#' @param object an mars object
-#'
-#' @return plots of residuals vs fitted, qqplot, Scale-location, and Residual leverage
-#' @examples
-#' # forest data, comparing relative humidity to other variables
-#'df <- read.csv("./forestfires.csv",header=TRUE)
-#'df <- subset(df, select = c(wind, temp, RH))
-#'object <- mars(RH~.,df)
-#'plot.mars(object)
-#'
+
 plot.mars <- function(object){
   y <- object$y
   fit <- fitted(object)
@@ -389,7 +362,6 @@ plot.mars <- function(object){
   plot(hatvalues(object),strdres, ylab="Standaradized Residuals", xlab="Leverage")
   title("Residual vs Leverage")
 }
-
 #'Prints the mars object
 #'
 #' @param mars an mars objects
