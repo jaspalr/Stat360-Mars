@@ -2,12 +2,22 @@
 #'
 #' Fit Friedman's Multivariate Adaptive Regression Splines (MARS) model.
 #'
-#' @param formula an R formula
+#' @param formula an regression formula
 #' @param data a data frame containing the data
+#' @param control a mars control object (see mars.control to build one)
+#' @usage first create a mars control object using mars.control then
+#' mars(y~.,data, marscontrol)
+#' @details This function creates a Multivariate Adaptive Regression Splines
+#' model for set of data with a forward step and backward step based using Friedman's
+#' method
+#' 
 #'
-#' @details
-#'
-#' @return A number.
+#' @return a mars class containing the call, input formula, y values, coefficients,
+#' and data frame containing the split points, and direction for a given coefficient 
+#' 
+#' @author Jaspal Raman, Ben Nakmura, Jessica Kim
+#' @references Multivariate Adaptive Regression Splines 
+#' @seealso anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
 #' @example mars(y~., data, marscontrol)
 mars <- function(formula,data,control=mars.control()) {
   cc <- match.call() # save the call
