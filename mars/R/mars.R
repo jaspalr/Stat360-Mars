@@ -288,22 +288,6 @@ make_B <- function(X, Bfuncs){
 
 ## ANOVA mars
 
-#anova decomposition
-decomp <- function(object){
-  ncoeffs <- length(object$coefficients)
-  coeffs <- object$coefficients
-  X <- object$model[,-1] # remove intercept
-
-  f <- seq_len(nrow(X))*0
-  for(i in seq_len(nrow(X))){
-    for(j in seq_len(ncoeffs)){
-      #loop over each coefficent
-      f[i] <- X[i,j]*coeffs[j]
-    }
-  }
-  return(f)
-}
-
 #recall f value is calculated with MSR and MSE
 #'Conducts analysis of variance on a mars object
 #'
@@ -346,6 +330,22 @@ anova.mars <- function(object) {
   row.names(table) <- c("Regression","Residual","Total")
 
   return(table)
+}
+
+#anova decomposition
+decomp <- function(object){
+  ncoeffs <- length(object$coefficients)
+  coeffs <- object$coefficients
+  X <- object$model[,-1] # remove intercept
+
+  f <- seq_len(nrow(X))*0
+  for(i in seq_len(nrow(X))){
+    for(j in seq_len(ncoeffs)){
+      #loop over each coefficent
+      f[i] <- X[i,j]*coeffs[j]
+    }
+  }
+  return(f)
 }
 
 
