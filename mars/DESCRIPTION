@@ -5,9 +5,7 @@ Authors@R:
     person("Jaspal", "Raman", "raman@sfu.ca")
     person("Ben", "Nakmura", "ben_shires_nakamura@sfu.ca")
     person("Jessica", "Kim", "jessica_kim_6@sfu.ca")
-Description: This function creates a Multivariate Adaptive Regression Splines
-model for set of data with a forward step and backward step based using Friedman's
-method.
+Description: This function creates a Multivariate Adaptive Regression Splines model for set of data with a forward step and backward step based using Friedman's method.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
