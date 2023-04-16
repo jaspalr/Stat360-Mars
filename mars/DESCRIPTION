@@ -1,10 +1,9 @@
 Package: mars
 Title: Multivariate Adaptive Regression Splines (MARS)
 Version: 0.0.0.9000
-Authors@R: 
-    person("Jaspal", "Raman", "raman@sfu.ca")
-    person("Ben", "Nakmura", "ben_shires_nakamura@sfu.ca")
-    person("Jessica", "Kim", "jessica_kim_6@sfu.ca")
+Authors@R: c(person("Jaspal", "Raman", ,"raman@sfu.ca", role = "cre"),
+    person("Ben", "Nakmura", ,"ben_shires_nakamura@sfu.ca", role = "aut"),
+    person("Jessica", "Kim", ,"jessica_kim_6@sfu.ca", role= "aut"))
 Description: This function creates a Multivariate Adaptive Regression Splines model for set of data with a forward step and backward step based using Friedman's method.
 License: MIT + file LICENSE
 Encoding: UTF-8
