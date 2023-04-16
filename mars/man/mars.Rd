@@ -27,9 +27,8 @@ model for set of data with a forward step and backward step based using Friedman
 method
 }
 \examples{
-test 1:
- Example 1: Comparing Relative humidity to wind and temperature
-data obtained from https://archive-beta.ics.uci.edu/dataset/162/forest+fires
+ #Example 1: Comparing Relative humidity to wind and temperature
+#data obtained from https://archive-beta.ics.uci.edu/dataset/162/forest+fires
 df <- read.csv("testfiles/forestfires.csv",header=TRUE)
 df <- subset(df, select = c(wind, temp, RH))
 

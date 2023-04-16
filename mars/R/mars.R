@@ -18,9 +18,9 @@
 #' @author Jaspal Raman, Ben Shires Nakamura, Jessica Kim
 #' @references Multivariate Adaptive Regression Splines
 #' @seealso anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
-#' @examples test 1:
-#'  Example 1: Comparing Relative humidity to wind and temperature
-#'data obtained from https://archive-beta.ics.uci.edu/dataset/162/forest+fires
+#' @examples 
+#'  #Example 1: Comparing Relative humidity to wind and temperature
+#'#data obtained from https://archive-beta.ics.uci.edu/dataset/162/forest+fires
 #'df <- read.csv("testfiles/forestfires.csv",header=TRUE)
 #'df <- subset(df, select = c(wind, temp, RH))
 #'
