@@ -15,7 +15,7 @@
 #' @return a mars class containing the call, input formula, y values, coefficients,
 #' and data frame containing the split points, and direction for a given coefficient
 #'
-#' @author Jaspal Raman, Ben Nakmura, Jessica Kim
+#' @author Jaspal Raman, Ben Shires Nakamura, Jessica Kim
 #' @references Multivariate Adaptive Regression Splines
 #' @seealso anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
 #' @example mars(y~., data, marscontrol)
