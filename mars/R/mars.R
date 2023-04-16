@@ -401,7 +401,7 @@ plot.mars <- function(object){
 print.mars<-function(mars)  {
   coeff <- mars$coefficients
   bfuncs <- mars$Bfuncs
-  name <- names(f[["coefficients"]])
+  name <- names(coeff)
   index = 1
   varnames <- mars$x_names
   cat("Call:\n")
