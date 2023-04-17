@@ -18,7 +18,8 @@
 #' @author Jaspal Raman, Ben Shires Nakamura, Jessica Kim
 #' @references Multivariate Adaptive Regression Splines
 #' @seealso anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
-#' @examples 
+#' @examples
+#'  #please set working directory with setwd("file path here")
 #'  #Example 1: Comparing Relative humidity to wind and temperature
 #'#data obtained from https://archive-beta.ics.uci.edu/dataset/162/forest+fires
 #'df <- read.csv("testfiles/forestfires.csv",header=TRUE)
@@ -27,6 +28,8 @@
 #'m <- mars(RH~.,df)
 #'plot.mars(m)
 #'print.mars(m)
+#'summary.mars(m)
+#'
 #'# Example  2: Comparing Concrete compressive strength to many other variables
 #'#data obtained from https://archive-beta.ics.uci.edu/dataset/165/concrete+compressive+strength
 #'df2 <- read.csv("testfiles/Concrete_Data.csv",header=TRUE)
@@ -37,6 +40,7 @@
 #'m <- mars(Concrete.compressive.strength~.,df2)
 #'print.mars(m)
 #'anova.mars(m)
+#'
 #'# Example  3: Comparing facebook likes to comments and shares
 #'#data obtained from https://archive-beta.ics.uci.edu/dataset/368/facebook+metrics
 #'df3 <- read.delim("testfiles/dataset_Facebook.csv",sep=";",header=TRUE)
@@ -47,9 +51,9 @@
 #'m <- mars(like~., df3, mars.control(10,trace=TRUE))
 #'predict.mars(m, newdata)
 #'anova.mars(m)
-#' 
-#' 
-#' 
+#'
+#'
+#'
 mars <- function(formula,data,control=mars.control()) {
   cc <- match.call() # save the call
   mf <- model.frame(formula,data)
@@ -413,7 +417,7 @@ plot.mars <- function(object){
 #'
 #' @return void
 #' @examples
-#' print(mars)
+#' print.mars(mars)
 print.mars<-function(mars)  {
   coeff <- mars$coefficients
   bfuncs <- mars$Bfuncs
@@ -462,4 +466,29 @@ print.mars<-function(mars)  {
     index = index +1
 
   }
+}
+
+
+#'Gives summary of the mars object
+#'
+#' @param mars an mars objects
+#'
+#' @return summary of the object
+#' @examples
+#' summary.mars(mars)
+summary.mars <- function(object) {
+  # Extract relevant information from the object
+  model_summary <- list(
+    call = object$call,
+    coefficients = object$coefficients
+  )
+
+  if (!is.null(object$residuals)) {
+    model_summary$residual_summary <- summary(object$residuals)
+  }
+  # Print the summary statistics
+  cat("\nSummary:\n")
+  print(model_summary)
+  # Return the object
+  invisible(object)
 }

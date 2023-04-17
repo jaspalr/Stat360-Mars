@@ -16,10 +16,7 @@ plots of residuals vs fitted, qqplot, Scale-location, and Residual leverage
 plot various aspects of the mars object
 }
 \examples{
-# forest data, comparing relative humidity to other variables
-df <- read.csv("./forestfires.csv",header=TRUE)
-df <- subset(df, select = c(wind, temp, RH))
-object <- mars(RH~.,df)
+# see forest fire ex. in testfile
 plot.mars(object)
 
 }

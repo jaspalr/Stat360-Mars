@@ -16,12 +16,6 @@ A data frame containing the sum of squares, F-value, p-value, etc.
 Conducts analysis of variance on a mars object
 }
 \examples{
-# concrete strength
-df2 <- read.csv("./Concrete_Data.csv",header=TRUE)
-names(df2) <- c("Cement","Blast.Furnace.Slag","Fly.Ash","Water",
-                "Superplasticizer","Coarse.Aggregate","Fine.Aggregate.",
-                "Age.(day)", "Concrete.compressive.strength")
-df2 <- head(df2,500)
-object <- mars(Concrete.compressive.strength~.,df2)
-mars.anova(object)
+# see concrete strength ex. in testfile
+ anova.mars(object)
 }

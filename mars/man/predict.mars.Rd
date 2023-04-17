@@ -18,12 +18,6 @@ A vector length m with predicted values
 Creates a prediction for Y given new data
 }
 \examples{
-#facebook data
-df3 <- read.delim("./dataset_Facebook.csv",sep=";",header=TRUE)
-df3 <- subset(df3, select = c(like, comment, share))
-df3 <- head(df3,400)
-newdata <- tail(df3,100)
-names(newdata) <- names(df3)
-object <- mars(like~., df3)
+# see facebook data ex. in test file
 predict.mars(object, newdata)
 }
