@@ -238,13 +238,7 @@ mars.control <- function(Mmax=2,d=3,trace=FALSE) {
 #'
 #' @return A vector length m with predicted values
 #' @examples
-#' #facebook data
-#' df3 <- read.delim("./dataset_Facebook.csv",sep=";",header=TRUE)
-#' df3 <- subset(df3, select = c(like, comment, share))
-#' df3 <- head(df3,400)
-#' newdata <- tail(df3,100)
-#' names(newdata) <- names(df3)
-#' object <- mars(like~., df3)
+#' # see facebook data ex. in test file
 #' predict.mars(object, newdata)
 
 predict.mars <- function(object,newdata) {
@@ -295,14 +289,8 @@ make_B <- function(X, Bfuncs){
 #'
 #' @return A data frame containing the sum of squares, F-value, p-value, etc.
 #' @examples
-#' # concrete strength
-#' df2 <- read.csv("./Concrete_Data.csv",header=TRUE)
-#' names(df2) <- c("Cement","Blast.Furnace.Slag","Fly.Ash","Water",
-#'                 "Superplasticizer","Coarse.Aggregate","Fine.Aggregate.",
-#'                 "Age.(day)", "Concrete.compressive.strength")
-#' df2 <- head(df2,500)
-#' object <- mars(Concrete.compressive.strength~.,df2)
-#' mars.anova(object)
+#' # see concrete strength ex. in testfile
+#'  anova.mars(object)
 anova.mars <- function(object) {
   ncoeffs <- object$coefficients
   y <- object$y
@@ -356,11 +344,8 @@ decomp <- function(object){
 #'
 #' @return plots of residuals vs fitted, qqplot, Scale-location, and Residual leverage
 #' @examples
-#' # forest data, comparing relative humidity to other variables
-#'df <- read.csv("./forestfires.csv",header=TRUE)
-#'df <- subset(df, select = c(wind, temp, RH))
-#'object <- mars(RH~.,df)
-#'plot.mars(object)
+#' # see forest fire ex. in testfile
+#' plot.mars(object)
 #'
 plot.mars <- function(object){
   y <- object$y

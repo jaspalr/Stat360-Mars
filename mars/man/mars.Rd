@@ -4,16 +4,34 @@
 \alias{mars}
 \title{Multivariate Adaptive Regression Splines (MARS)}
 \usage{
-mars(formula, data, control = mars.control())
+first create a mars control object using mars.control then
+mars(y~.,data, marscontrol)
 }
 \arguments{
-\item{formula}{an R formula}
+\item{formula}{an regression formula}
 
 \item{data}{a data frame containing the data}
+
+\item{control}{a mars control object (see mars.control to build one)}
 }
 \value{
-A number.
+a mars class containing the call, input formula, y values, coefficients,
+and data frame containing the split points, and direction for a given coefficient
 }
 \description{
 Fit Friedman's Multivariate Adaptive Regression Splines (MARS) model.
+}
+\details{
+This function creates a Multivariate Adaptive Regression Splines
+model for set of data with a forward step and backward step based using Friedman's
+method
+}
+\references{
+Multivariate Adaptive Regression Splines
+}
+\seealso{
+anova.mars, print.mars, plot.mars, predict.mars, print.mars, summary.mars
+}
+\author{
+Jaspal Raman, Ben Shires Nakamura, Jessica Kim
 }
