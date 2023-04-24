@@ -1,7 +1,4 @@
-# Stat360-Mars
-R: Multivariate Adaptive Regression Splines (MARS)    
-
-mars
+#Multivariate Adaptive Regression Splines (MARS)    
 
 R Documentation
 
