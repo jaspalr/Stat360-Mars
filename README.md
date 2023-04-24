@@ -1,5 +1,5 @@
 # Stat360-Mars
-R: Multivariate Adaptive Regression Splines (MARS)    const macros = { "\\\\R": "\\\\textsf{R}", "\\\\code": "\\\\texttt"}; function processMathHTML() { var l = document.getElementsByClassName('reqn'); for (let e of l) { katex.render(e.textContent, e, { throwOnError: false, macros }); } return; } 
+R: Multivariate Adaptive Regression Splines (MARS)    
 
 mars
 
@@ -10,7 +10,7 @@ Multivariate Adaptive Regression Splines (MARS)
 
 ### Description
 
-Fit Friedman's Multivariate Adaptive Regression Splines (MARS) model. https://github.com/jaspalr/Stat360-Mars
+Fit Friedman's Multivariate Adaptive Regression Splines (MARS) model. 
 
 ### Usage
 
